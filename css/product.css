@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -18,19 +17,23 @@ body {
     align-items: center;
     background-color: #003366;
     padding: 20px 40px;
-    position: relative;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .logo h1 {
-    color: #FFA500;
+    color: #FFA500; 
     font-size: 24px;
 }
 
 .navbar .nav-links {
     list-style: none;
     display: flex;
+    transition: all 0.3s ease;
     gap: 20px;
 }
 
@@ -46,22 +49,39 @@ body {
 
 /* Menu Hamburguer */
 .hamburger {
-    display: none; 
+    display: none;
+    cursor: pointer;
     flex-direction: column;
     gap: 5px;
-    cursor: pointer;
-    position: absolute; 
-    right: 20px;
+    z-index: 1000; 
+    position: absolute;
+    right: 20px; 
     top: 20px;
 }
 
 .hamburger .line {
-    width: 30px;
+    width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
+/* Animação de Transformação do Hambúrguer */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translateY(8px); 
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+
+/* Itens de navegação */
 .nav-links {
     display: flex; 
     gap: 20px;
@@ -72,12 +92,14 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: white;
+    font-size: 20px;
     text-decoration: none;
-    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s;
 }
 
-/* Responsividade para telas pequenas */
+
 @media (max-width: 768px) {
     .nav-links {
         display: none; 
@@ -122,36 +144,11 @@ body {
     }
 }
 
-/* Footer */
-.footer {
-    background-color: #003366;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-}
 
-.footer-content p {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.footer-links {
-    margin-top: 10px;
-}
-
-.footer-links a {
-    color: #FFA500;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 14px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
 
 /* Seção de Produtos */
 .products {
+    margin-top: 100px;
     padding: 60px 20px;
     text-align: center;
 }
@@ -215,7 +212,7 @@ body {
     justify-content: space-between; 
 }
 
-/* Garantir que as imagens não distorçam e tenham o mesmo tamanho */
+/* imagens não distorçam e tenham o mesmo tamanho */
 .product-card img {
     width: 100%;
     height: 200px; 
@@ -296,6 +293,7 @@ body {
         display: block;
     }
 }
+
 
 /* Footer */
 .footer {
