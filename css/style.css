@@ -1,4 +1,4 @@
-/* Reset e Estilo Global */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +7,9 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F5F5F5; /* Fundo neutro */
-    color: #333; /* Texto escuro para boa legibilidade */
+    background-color: #F5F5F5; 
+    color: #333; 
+    line-height: 1.6;
 }
 
 /* Header */
@@ -16,19 +17,26 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #003366; /* Azul escuro */
-    padding: 10px 20px;
-    position: relative;
+    background-color: #003366;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .logo h1 {
-    color: #FFA500; /* Laranja vibrante */
+    color: #FFA500; 
+    font-size: 24px;
 }
 
 .navbar .nav-links {
     list-style: none;
     display: flex;
     transition: all 0.3s ease;
+    gap: 20px;
 }
 
 .navbar .nav-links li {
@@ -47,7 +55,10 @@ body {
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
-    z-index: 1000; /* Para garantir que fique sobre o menu */
+    z-index: 1000; 
+    position: absolute;
+    right: 20px; 
+    top: 20px;
 }
 
 .hamburger .line {
@@ -60,33 +71,82 @@ body {
 
 /* Animação de Transformação do Hambúrguer */
 .hamburger.active .line:nth-child(1) {
-    transform: rotate(45deg) translateY(8px); /* Linha de cima vira para formar o X */
+    transform: rotate(45deg) translateY(8px); 
 }
 
 .hamburger.active .line:nth-child(2) {
-    opacity: 0; /* Linha do meio desaparece */
+    opacity: 0;
 }
 
 .hamburger.active .line:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px); /* Linha de baixo vira para formar o X */
+    transform: rotate(-45deg) translateY(-8px);
 }
+
+
+/* Itens de navegação */
+.nav-links {
+    display: flex; 
+    gap: 20px;
+}
+
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 12px 20px;
+    transition: background-color 0.3s;
+}
+
 
 /* Seção de Introdução */
 .intro {
+    position: relative;
     text-align: center;
-    background-color: #003366; /* Azul escuro */
+    background: url('../src/desconto.jpg') no-repeat center center/cover; /* Adicionando imagem de fundo */
     color: #fff;
-    padding: 80px 20px;
+    padding: 120px 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 2;
 }
 
 .intro h2 {
-    font-size: 36px;
+    font-size: 48px;
+    font-weight: bold;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .intro p {
     font-size: 20px;
     margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .cta-wrapper {
@@ -95,17 +155,20 @@ body {
 }
 
 .cta-button {
-    padding: 12px 25px;
-    background-color: #FFA500; /* Laranja vibrante */
+    padding: 14px 30px;
+    background-color: #FFA500; 
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .cta-button:hover {
-    background-color: #e98e3d; /* Laranja mais escuro ao passar o mouse */
+    background-color: #e98e3d; 
+    transform: scale(1.1); 
 }
 
 /* Seção de Produtos */
@@ -119,26 +182,35 @@ body {
     margin-bottom: 30px;
 }
 
+/* Cards de Produtos */
 .product-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
 }
 
 .product-card {
-    background-color: #fff; /* Fundo branco para destacar o produto */
+    background-color: #fff;
     padding: 20px;
     width: 250px;
+    height: 400px; 
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
 }
 
+/* imagens não distorçam e tenham o mesmo tamanho */
 .product-card img {
     width: 100%;
+    height: 200px; 
+    object-fit: cover; 
     border-radius: 10px;
 }
+
 
 .product-card h3 {
     font-size: 24px;
@@ -154,10 +226,17 @@ body {
     margin-top: 10px;
 }
 
+.product-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px;
+}
+
 /* Seção de Depoimentos */
 .testimonials {
     padding: 60px 20px;
-    background-color: #f9f9f9; /* Fundo claro para contraste */
+    background-color: #f9f9f9; 
     text-align: center;
 }
 
@@ -182,9 +261,19 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilizando as estrelas */
+.rating i {
+    color: gold; 
+    margin-right: 3px; 
+}
+.rating .fa-star-half-alt {
+    color: orange; 
+}
+
+
 /* Seção de Garantia */
 .guarantee {
-    background-color: #003366; /* Azul escuro */
+    background-color: #003366; 
     color: #fff;
     padding: 80px 20px;
     text-align: center;
@@ -206,7 +295,7 @@ body {
 
 .cta-button {
     padding: 12px 25px;
-    background-color: #A7D08E; /* Verde claro para indicar segurança e crescimento */
+    background-color: #A7D08E; 
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -215,7 +304,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #8cbf6f; /* Verde mais escuro ao passar o mouse */
+    background-color: #8cbf6f; 
 }
 
 .cta-wrapper {
@@ -226,7 +315,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: #003366; /* Azul escuro */
+    background-color: #003366; 
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -244,7 +333,7 @@ footer {
         margin-top: 10px;
         display: none;
         width: 100%;
-        background-color: #003366; /* Azul escuro para o menu */
+        background-color: #003366; 
         padding: 20px;
         position: absolute;
         top: 60px;
@@ -252,14 +341,14 @@ footer {
         right: 0;
         z-index: 999;
         transform: translateY(-100%);
-        opacity: 0; /* Inicia invisível */
-        transition: transform 0.5s ease, opacity 0.5s ease; /* Aumento no tempo de transição */
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease; 
     }
 
     .navbar .nav-links.active {
         display: flex;
         transform: translateY(0);
-        opacity: 1; /* Torna visível */
+        opacity: 1; 
     }
 
     .product-cards {
