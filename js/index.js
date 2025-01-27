@@ -10,7 +10,7 @@ hamburger.addEventListener('click', () => {
  const products = [
     {
         name: "Iphone 13",
-        images: ["./src/iphone.jpg", "./src/iphone.jpg", "./src/iphone.jpg"],
+        images: ["./src/product/eletronicos/celular/iphone.jpg", "./src/iphone.jpg", "./src/iphone.jpg"],
         description: "128GB, Tela 6,1 12MP",
         price: "R$ 3.400,00",
         originalPrice: "R$ 3.699,00",
@@ -18,7 +18,7 @@ hamburger.addEventListener('click', () => {
     },
     {
         name: "Iphone 12",
-        images: ["./src/iphone.jpg", "./src/iphone.jpg", "./src/iphone.jpg"],
+        images: ["./src/product/eletronicos/celular/iphone 12.jpeg", "./src/iphone.jpg", "./src/iphone.jpg"],
         description: "64GB, Tela 6,1 12MP",
         price: "R$ 2.800,00",
         originalPrice: "R$ 3.199,00",
@@ -26,7 +26,7 @@ hamburger.addEventListener('click', () => {
     },
     {
         name: "Headset Hylas",
-        images: ["./src/iphone.jpg", "./src/headset2.jpg", "./src/headset3.jpg"],
+        images: ["./src/product/eletronicos/headset/Headset.png", "./src/headset2.jpg", "./src/headset3.jpg"],
         description: "Hylas Preto H260 RGB",
         price: "R$ 150,00",
         originalPrice: "R$ 200,00",
@@ -34,7 +34,7 @@ hamburger.addEventListener('click', () => {
     },
     {
         name: "Notebook Dell ",
-        images: ["./src/iphone.jpg", "./src/dell_inspiron2.jpg", "./src/dell_inspiron3.jpg"],
+        images: ["./src/product/eletronicos/notebook/dell_inspiron.jpg", "./src/dell_inspiron2.jpg", "./src/dell_inspiron3.jpg"],
         description: "i7,8GB,512GB SSD",
         price: "R$ 3.799,00",
         originalPrice: "R$ 4.199,00",
